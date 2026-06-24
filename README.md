@@ -1,5 +1,7 @@
 # skill-upgrade
 
+(Tiếng Việt: [README.vi.md](README.vi.md).)
+
 I had a skill that worked. It did its job in most cases, and the temptation was
 to tidy the prose, bump the number, and call it upgraded. Then I ran it against a
 council of agents whose only instruction was to break it, and watched it perform
