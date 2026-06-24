@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+message: "If you use this skill, please cite it using the metadata below."
+title: "skill-upgrade: a triage-gated process for taking a behavioral skill to publish-grade"
+abstract: "A triage-gated, scale-aware process for upgrading an existing behavioral skill for AI assistants from working to publish-grade and beyond. Step 0 classifies the skill (reflex, module, or engine) so the apparatus fits its size and reach. A core (spec the gap and lock the architecture; stress-test with an independent adversarial council and an explicit cut/keep/fix/add boundary; rewrite and ground every claim in real prior-art searched at the time; separate the universal engine from context-bound packs) always runs; a publish track (formalize the test apparatus; build contribution infrastructure that holds the standard without a human gatekeeper; audit, version, and package) runs only when the skill is published for others. Every step leaves a checkable artifact and the version bump is gated on them. Two governing rules: an upgrade needs a stated what-for, and the process must eat its own dogfood. v2.0.0 was produced by running the process on itself."
+type: software
+authors:
+  - family-names: "Le"
+    given-names: "Cong Hoang"
+    email: "leconghoangstudio@gmail.com"
+version: "2.0.0"
+date-released: "2026-06-24"
+license: Apache-2.0
+repository-code: "https://github.com/hoangCreative/skill-upgrade"
+keywords:
+  - claude-code
+  - agent-skills
+  - meta-skill
+  - skill-development
+  - quality-assurance
+  - red-teaming
+  - ai-agents

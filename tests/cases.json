@@ -1,0 +1,91 @@
+{
+  "_about": "Self-test bank for validate_skill.py. base is a valid engine-class package state; each case overrides one field to reproduce a cheat the v2 adversarial council found. A regression is any case whose checker verdict no longer matches expect.",
+  "base": {
+    "klass": "engine",
+    "files": [
+      "SKILL.md", "README.md", "METHODOLOGY.md", "CHANGELOG.md",
+      "CITATION.cff", "LICENSE", "CONTRIBUTING.md",
+      "tests/README.md", "tests/cases.json",
+      "scripts/validate_skill.py", ".github/workflows"
+    ],
+    "emdash": 0,
+    "has_name": true,
+    "has_version": true,
+    "v_skill": "2.0.0",
+    "v_citation": "2.0.0",
+    "v_changelog": "2.0.0",
+    "methodology_sections": [
+      "1. what for", "2. the architecture decision", "3. the council",
+      "4. the boundary", "5. the dogfood record", "6. sources ledger",
+      "7. honest limits"
+    ],
+    "boundary_has_cut": true,
+    "dogfood_claimed": true,
+    "dogfood_record": true,
+    "ceiling_claimed": false,
+    "ceiling_harness_spec": false
+  },
+  "cases": [
+    {
+      "name": "good-1-full-engine-package",
+      "leak": null,
+      "expect": "pass",
+      "override": {}
+    },
+    {
+      "name": "good-2-no-ci-still-passes",
+      "leak": null,
+      "expect": "pass",
+      "override": {
+        "files": [
+          "SKILL.md", "README.md", "METHODOLOGY.md", "CHANGELOG.md",
+          "CITATION.cff", "LICENSE", "CONTRIBUTING.md",
+          "tests/README.md", "tests/cases.json",
+          "scripts/validate_skill.py"
+        ]
+      }
+    },
+    {
+      "name": "bad-1-missing-methodology",
+      "leak": "artifact-missing",
+      "expect": "fail",
+      "override": {
+        "files": [
+          "SKILL.md", "README.md", "CHANGELOG.md", "CITATION.cff",
+          "LICENSE", "CONTRIBUTING.md", "tests/README.md", "tests/cases.json",
+          "scripts/validate_skill.py", ".github/workflows"
+        ]
+      }
+    },
+    {
+      "name": "bad-2-version-mismatch",
+      "leak": "version-drift",
+      "expect": "fail",
+      "override": { "v_changelog": "1.0.0" }
+    },
+    {
+      "name": "bad-3-emdash-present",
+      "leak": "banned-char",
+      "expect": "fail",
+      "override": { "emdash": 2 }
+    },
+    {
+      "name": "bad-4-boundary-no-cut",
+      "leak": "anti-bloat-skipped",
+      "expect": "fail",
+      "override": { "boundary_has_cut": false }
+    },
+    {
+      "name": "bad-5-dogfood-unproven",
+      "leak": "self-report",
+      "expect": "fail",
+      "override": { "dogfood_record": false }
+    },
+    {
+      "name": "bad-6-vague-ceiling",
+      "leak": "free-ceiling-claim",
+      "expect": "fail",
+      "override": { "ceiling_claimed": true, "ceiling_harness_spec": false }
+    }
+  ]
+}
